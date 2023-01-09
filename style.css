@@ -1,0 +1,115 @@
+:root{
+    --book-background-color: #fee2e2;
+    --bookshelf-background-color: #fca5a5;
+    --green-button: #22c55e;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+body{
+    margin: 0;
+}
+.main-container, .book{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.new-button{
+    background-color: #475569;
+    margin: 0 0 1rem;
+    font-size: 1.3rem;
+    padding: 1rem;
+    border-radius: 2rem;
+    border: 2px solid black;
+    color: white;
+}
+.bookshelf{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 1rem;
+
+    padding: 1rem;
+    width: 95%;
+    justify-self: center;
+    background-color: var(--bookshelf-background-color);
+    border-radius: 2rem;
+    box-shadow: 1px 1px 5px;
+}
+.book{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    background-color: var(--book-background-color);
+    width: 20%;
+    padding: 1rem;
+    text-align: center;
+    border-radius: 1rem;
+    border: 1px solid black;
+    box-shadow: 1px 1px 5px;
+}
+.title{
+    font-weight: 700;
+    text-decoration: underline;
+    font-size: 1.5rem;
+    letter-spacing: 0.1rem;
+    margin: 0.2rem;
+}
+.author{
+    font-style: italic;
+    margin: 1rem 0;
+    font-size: 1rem;
+}
+.pages{
+    font-size: 1.3rem;
+    margin: 0.5rem 0 1rem;
+}
+.read{
+    border-radius: 1rem;
+    padding: 1rem;
+    font-size: 1.2rem;
+}
+.finished{
+    background-color: var(--green-button);
+}
+button:hover{
+    cursor: pointer;
+}
+
+/* Form styling */
+.cover{
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.new-book-form{
+    display: none;
+    border: 2px solid black;
+    padding: 1rem;
+    position: absolute;
+    background-color: white;
+    top: 7rem;
+}
+
+form{
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    align-items: center;
+}
+.input-item{
+    display: flex;
+    flex-direction: column;
+}
+.close-button{
+    transform: rotate(45deg);
+    font-size: 2rem;
+    float: right;
+    position: absolute;
+    top: 0;
+    right: 10px;
+}
+.close-button:hover{
+    cursor: pointer;
+}
