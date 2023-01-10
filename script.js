@@ -10,33 +10,21 @@ function Book (title, author, pages, read) {
   }
 }
 
-function addBookToLibrary (Book) {
-  myLibrary.push(Book)
+const bookForm = document.querySelector('#book-form')
+let bookEntry
+
+// Function to create a new book from the form
+function addBookToLibrary (event) {
+  event.preventDefault()
+
+  bookEntry = new Book(bookForm.title.value, bookForm.author.value, bookForm.pages.value, bookForm.read.value)
+  myLibrary.push(bookEntry)
+  displayBook(bookEntry)
 }
 
-const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', 295, false)
-addBookToLibrary(theHobbit)
-const harryPotter = new Book('Harry Potter and the Chamber of Secrets', 'J.K. Rowling', 251, false)
-addBookToLibrary(harryPotter)
-const narnia = new Book('The Lion, The Witch and the Wardrobe', 'C.S. Lewis', 172, false)
-addBookToLibrary(narnia)
-
-// This code block displays the form
-const addButton = document.querySelector('.new-button')
-const popUp = document.querySelector('.new-book-form')
-const cover = document.querySelector('.cover')
-addButton.addEventListener('click', () => {
-  cover.style.setProperty('display', 'block')
-  popUp.style.setProperty('display', 'block')
-})
-const closeButton = document.querySelector('.close-button')
-closeButton.addEventListener('click', () => {
-  cover.style.setProperty('display', 'none')
-  popUp.style.setProperty('display', 'none')
-})
-
+// This function adds books to the bookshelf
 const bookshelf = document.querySelector('.bookshelf')
-for (const book of myLibrary) { // This loop adds books to the bookshelf
+function displayBook (book) {
   const bookCard = document.createElement('div')
   bookCard.classList.add('book')
 
@@ -71,3 +59,40 @@ for (const book of myLibrary) { // This loop adds books to the bookshelf
 
   bookshelf.appendChild(bookCard)
 }
+
+
+
+
+
+
+
+
+
+// This code block displays the form
+const addButton = document.querySelector('.new-button')
+const popUp = document.querySelector('.new-book-form')
+const cover = document.querySelector('.cover')
+addButton.addEventListener('click', () => {
+  cover.style.setProperty('display', 'block')
+  popUp.style.setProperty('display', 'block')
+})
+const closeButton = document.querySelector('.close-button')
+closeButton.addEventListener('click', () => {
+  cover.style.setProperty('display', 'none')
+  popUp.style.setProperty('display', 'none')
+})
+
+// This block gives the form submit button functionality
+const submitButton = document.querySelector('.submit-button')
+submitButton.addEventListener('click', addBookToLibrary)
+
+// Adds default books to the bookshelf
+const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', 295, false)
+myLibrary.push(theHobbit)
+displayBook(theHobbit)
+const harryPotter = new Book('Harry Potter and the Chamber of Secrets', 'J.K. Rowling', 251, false)
+myLibrary.push(harryPotter)
+displayBook(harryPotter)
+const narnia = new Book('The Lion, The Witch and the Wardrobe', 'C.S. Lewis', 172, false)
+myLibrary.push(narnia)
+displayBook(narnia)
