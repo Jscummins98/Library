@@ -2,6 +2,11 @@
     --book-background-color: #fee2e2;
     --bookshelf-background-color: #fca5a5;
     --green-button: #22c55e;
+    --remove-button: #ef4444;
+    --button-hover: #d1d5db;
+    --green-button-hover: #16a34a;
+    --new-button: #475569;
+    --new-button-hover: #334155;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 body{
@@ -13,13 +18,16 @@ body{
     flex-direction: column;
 }
 .new-button{
-    background-color: #475569;
+    background-color: var(--new-button);
     margin: 0 0 1rem;
     font-size: 1.3rem;
     padding: 1rem;
     border-radius: 2rem;
     border: 2px solid black;
     color: white;
+}
+.new-button:hover{
+    background-color: var(--new-button-hover);
 }
 .bookshelf{
     display: flex;
@@ -71,9 +79,24 @@ body{
 .finished{
     background-color: var(--green-button);
 }
+.remove{
+    background-color: white;
+    color: var(--remove-button);
+    border: 2px solid var(--remove-button);
+    padding: 0.25rem;
+    margin-top: 0.5rem;
+    border-radius: 0.5rem;
+}
 button:hover{
     cursor: pointer;
 }
+.remove:hover, .read:hover{
+    background-color: var(--button-hover);
+}
+.finished:hover{
+    background-color: var(--green-button-hover);
+}
+
 
 /* Form styling */
 .cover{
@@ -86,10 +109,11 @@ button:hover{
 .new-book-form{
     display: none;
     border: 2px solid black;
-    padding: 1rem;
+    padding: 2rem;
     position: absolute;
     background-color: white;
     top: 7rem;
+    border-radius: 1rem;
 }
 
 form{
@@ -100,6 +124,7 @@ form{
 }
 .input-item{
     display: flex;
+    gap: 0.3rem;
     flex-direction: column;
 }
 .close-button{

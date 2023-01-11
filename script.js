@@ -57,6 +57,7 @@ function displayBook (book) {
   bookCard.appendChild(readButton)
 
   const removeButton = document.createElement('button')
+  removeButton.classList.add('remove')
   removeButton.textContent += 'Remove'
   removeButton.addEventListener('click', () => {
     bookshelf.removeChild(bookCard)
